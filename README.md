@@ -1,5 +1,10 @@
 # OscarSwift's Personal Website
 
+[🌐 在线预览（Vercel 部署）](https://oscarswiftsite-aigj7bfl6-oscarswifts-projects.vercel.app/)
+
+![网站预览](preview.png)
+
+
 A modern, responsive and animated personal website built with HTML, CSS, and JavaScript. The site features smooth page transitions, visually unified hero images, and a clean UI. Designed for easy customization and perfect for showcasing your education, skills, projects, hobbies, and contact information.
 
 > 现代响应式个人主页，支持淡入淡出页面切换动画，主题图片风格统一，适合在GitHub展示和自定义。中英文注释，易于维护和扩展。
