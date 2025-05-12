@@ -289,6 +289,63 @@ footer {
     position: relative;
 }
 
+.timeline-item .school-title-flex {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.timeline-item .school-logo {
+    height: 1.6em;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 3px;
+    box-shadow: none;
+    background: none;
+    padding: 0;
+}
+
+.timeline-item .absolute-logo {
+    position: absolute;
+    top: 16px;
+    right: 36px;
+    height: 106px;
+    width: auto;
+    z-index: 2;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+    padding: 4px 6px;
+}
+
+@media (max-width: 600px) {
+    .timeline-item .absolute-logo {
+        position: static;
+        display: block;
+        margin: 10px auto 0 auto;
+        height: 36px;
+        box-shadow: none;
+        right: auto;
+        top: auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .timeline-item .absolute-logo {
+        position: static;
+        display: block;
+        margin: 10px auto 0 auto;
+        height: 32px;
+        box-shadow: none;
+        right: auto;
+        top: auto;
+    }
+}
+
+
 .timeline-content::after {
     content: '';
     position: absolute;
@@ -310,7 +367,7 @@ footer {
 
 .timeline-content h3 {
     color: var(--primary-color);
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
 .timeline-content .date {
@@ -611,10 +668,23 @@ footer {
 .feed-list {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
     max-height: 500px;
     overflow-y: auto;
     padding-right: 8px;
+}
+
+.feed-card {
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+    .feed-card {
+        max-width: 100%;
+    }
 }
 .feed-card {
     background: white;
