@@ -32,9 +32,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
     fadeElements.forEach(element => {
         observer.observe(element);
+    });
+
+    // 页面淡入动画
+    document.body.classList.add('fade-in');
+
+    // 页面跳转时淡出
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+        // 仅处理站内链接
+        if (link.hostname === window.location.hostname && !link.hasAttribute('target')) {
+            link.addEventListener('click', function (e) {
+                // 允许右键/新标签等
+                if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+                // 锚点跳转不处理
+                if (link.getAttribute('href').startsWith('#')) return;
+                e.preventDefault();
+                document.body.classList.remove('fade-in');
+                document.body.classList.add('fade-out');
+                setTimeout(() => {
+                    window.location = link.href;
+                }, 500);
+            });
+        }
     });
 
     // 导航栏滚动效果
