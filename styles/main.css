@@ -172,11 +172,9 @@ body.fade-in {
 }
 
 .hero-skills {
-    background-image: url('../images/hero-skills.jpg');
 }
 
 .hero-hobbies {
-    background-image: url('../images/hero-hobbies.jpg');
     background-position: center 100%;
     background-size: cover;
     background-repeat: no-repeat;
