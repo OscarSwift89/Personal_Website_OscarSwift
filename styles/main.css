@@ -91,7 +91,7 @@ body.fade-in {
 }
 
 .hero {
-    height: 70vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,6 +177,10 @@ body.fade-in {
 
 .hero-hobbies {
     background-image: url('../images/hero-hobbies.jpg');
+    background-position: center 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
 }
 
 .hero-contact {
@@ -414,13 +418,22 @@ footer {
 }
 
 .skills-row.row-1 {
-    animation: marquee-left 18s linear infinite;
+    animation: bounce-left 4s ease-in-out infinite alternate;
 }
 .skills-row.row-2 {
-    animation: marquee-right 20s linear infinite;
+    animation: bounce-right 5s ease-in-out infinite alternate;
 }
 .skills-row.row-3 {
-    animation: marquee-left 22s linear infinite;
+    animation: bounce-left 6s ease-in-out infinite alternate;
+}
+
+@keyframes bounce-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-30%); }
+}
+@keyframes bounce-right {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(30%); }
 }
 
 @keyframes marquee-left {
@@ -433,8 +446,9 @@ footer {
 }
 
 .skill-card {
-    min-width: 210px;
-    flex: 0 0 210px;
+    min-width: 180px;
+    max-width: 260px;
+    flex: 1 1 220px;
     background: white;
     padding: 2rem;
     border-radius: 10px;
