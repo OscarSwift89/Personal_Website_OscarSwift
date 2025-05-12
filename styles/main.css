@@ -117,6 +117,16 @@ body {
     transform: none;
 }
 
+.hero-education .hero-bg {
+    object-fit: cover;
+    object-position: center;
+    padding: 0;
+    opacity: 0.4;
+    filter: none;
+    transition: opacity 0.3s;
+    background: transparent;
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
@@ -148,7 +158,8 @@ body {
 }
 
 .hero-education {
-    background-image: url('../images/hero-education.jpg');
+    background-image: url('../images/unimelb-camp.jpg');
+    background-position: center center;
 }
 
 .hero-skills {
