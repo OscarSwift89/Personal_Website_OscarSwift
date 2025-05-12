@@ -122,17 +122,23 @@ body {
     z-index: 2;
     max-width: 800px;
     padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    padding-bottom: 4.5rem;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .hero-content p {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
 }
 
@@ -570,5 +576,95 @@ footer {
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
+    }
+}
+
+/* Activity Feed Styles */
+.about-feed {
+    margin-top: 2rem;
+}
+.about-feed h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+.feed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+.feed-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(123, 47, 242, 0.08), 0 1.5px 6px rgba(0,0,0,0.04);
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    border: 1px solid #f3e8fd;
+    transition: box-shadow 0.2s;
+}
+.feed-card:hover {
+    box-shadow: 0 8px 32px rgba(123, 47, 242, 0.15), 0 2px 8px rgba(0,0,0,0.06);
+}
+.feed-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.2rem;
+}
+.feed-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 0.2rem 0.8rem;
+    background: var(--light-bg);
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+.feed-tag.thoughts { background: #ede7f6; color: #7b2ff2; }
+.feed-tag.project { background: #e3f2fd; color: #1976d2; }
+.feed-tag.milestone { background: #fff3e0; color: #f57c00; }
+.feed-preview {
+    font-size: 0.92rem;
+    color: #888;
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 0.2rem 0.7rem;
+}
+.feed-card h3 {
+    font-size: 1.25rem;
+    margin: 0.2rem 0 0.3rem 0;
+    color: var(--primary-color);
+}
+.feed-card p {
+    color: #444;
+    font-size: 1.05rem;
+    margin-bottom: 0.2rem;
+}
+.feed-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.98rem;
+    color: #888;
+    align-items: center;
+    margin-top: 0.2rem;
+}
+.feed-meta i {
+    margin-right: 0.3em;
+    color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .feed-card {
+        padding: 1rem 1.2rem;
+    }
+    .feed-list {
+        max-height: 350px;
     }
 } 
