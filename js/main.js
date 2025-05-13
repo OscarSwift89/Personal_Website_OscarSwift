@@ -39,6 +39,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // 页面淡入动画
     document.body.classList.add('fade-in');
 
+    // 联系卡片点击展开/收起动画
+    const contactItems = document.querySelectorAll('.contact-item');
+    contactItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+            // 如果当前已激活，再次点击则收起
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                return;
+            }
+            // 先移除所有active
+            contactItems.forEach(i => i.classList.remove('active'));
+            // 激活当前
+            item.classList.add('active');
+            // 阻止事件冒泡，避免body点击立即收起
+            e.stopPropagation();
+        });
+    });
+    // 点击空白处收起所有卡片
+    document.body.addEventListener('click', function (e) {
+        contactItems.forEach(i => i.classList.remove('active'));
+    });
+
     // 页面跳转时淡出
     const links = document.querySelectorAll('a');
     links.forEach(link => {
