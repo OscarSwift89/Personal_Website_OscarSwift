@@ -68,8 +68,20 @@
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(123,47,242,0.08);
     background: #eee;
-    transition: transform 0.22s, box-shadow 0.22s;
+    transition: transform 0.22s, box-shadow 0.22s, z-index 0.22s;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.hobby-modal-img.zoomed {
+    /* 放大时z-index更高，显示在最上层 */
+    z-index: 20 !important;
+    box-shadow: 0 8px 32px rgba(123,47,242,0.22), 0 2px 8px rgba(0,0,0,0.14);
+}
+
+#hobby-modal-imgs {
+    overflow: visible;
 }
 .hobby-modal-img:hover {
     transform: scale(1.06) rotate(-2deg);
