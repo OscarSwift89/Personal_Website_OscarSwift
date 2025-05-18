@@ -56,22 +56,54 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 放大/还原图片，放大倍数更大
+    // 悬浮全屏缩放图片逻辑
+    let zoomOverlay = null;
+    let zoomedImg = null;
     function toggleZoomOnImg(img) {
-        if (img.classList.contains('zoomed')) {
-            img.classList.remove('zoomed');
-            img.style.transform = '';
-            img.style.zIndex = '';
-        } else {
-            // 放大到2.2倍，并置于最上层
-            img.classList.add('zoomed');
-            img.style.transform = 'scale(2.2)';
-            img.style.zIndex = '10';
+        // 关闭缩放
+        if (zoomOverlay) {
+            document.body.removeChild(zoomOverlay);
+            zoomOverlay = null;
+            zoomedImg = null;
+            return;
         }
+        // 创建遮罩
+        zoomOverlay = document.createElement('div');
+        zoomOverlay.className = 'zoom-overlay';
+        // 创建大图
+        zoomedImg = document.createElement('img');
+        zoomedImg.src = img.src;
+        zoomedImg.alt = img.alt;
+        zoomedImg.className = 'zoomed-img';
+        zoomedImg.setAttribute('data-scale', img.getAttribute('data-scale') || 1.5);
+        // 拷贝初始缩放
+        let scale = parseFloat(zoomedImg.getAttribute('data-scale')) || 1.5;
+        zoomedImg.style.transform = `scale(${scale})`;
+
+        // 滚轮缩放
+        zoomedImg.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            handleWheelZoom(zoomedImg, e, true);
+        }, { passive: false });
+        // 点击遮罩关闭
+        zoomOverlay.addEventListener('click', function(e) {
+            if (e.target === zoomOverlay) toggleZoomOnImg();
+        });
+        // ESC关闭
+        document.addEventListener('keydown', escZoomClose);
+        function escZoomClose(e) {
+            if (e.key === 'Escape') {
+                toggleZoomOnImg();
+                document.removeEventListener('keydown', escZoomClose);
+            }
+        }
+        zoomOverlay.appendChild(zoomedImg);
+        document.body.appendChild(zoomOverlay);
     }
 
     // 滚轮缩放图片
-    function handleWheelZoom(img, event) {
-        let scale = parseFloat(img.getAttribute('data-scale')) || 1;
+    function handleWheelZoom(img, event, isOverlay = false) {
+        let scale = parseFloat(img.getAttribute('data-scale')) || (isOverlay ? 2.2 : 1);
         const delta = event.deltaY || event.detail || event.wheelDelta;
         if (delta < 0) {
             scale *= 1.12;
@@ -82,8 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
         scale = Math.min(Math.max(scale, 0.3), 6);
         img.style.transform = `scale(${scale})`;
         img.setAttribute('data-scale', scale);
-        img.classList.add('zoomed');
-        img.style.zIndex = '10';
     }
     function closeModal() {
         modal.classList.remove('show-anim');
