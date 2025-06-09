@@ -1,4 +1,6 @@
 /* 全局样式 */
+@import url('hobbies-modal.css');
+
 :root {
     --primary-color: #7b2ff2;  /* 蓝紫 */
     --secondary-color: #f357a8;  /* 粉紫 */
@@ -1242,59 +1244,105 @@ footer {
     cursor: zoom-in;
 }
 
-/* 点赞按钮动画效果 */
-.like-btn {
+/* 视频容器样式 */
+.video-container {
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
     position: relative;
-    transition: transform 0.2s ease;
 }
 
-.like-btn:active {
-    transform: scale(0.9);
+.video-container video {
+    width: 100%;
+    display: block;
+    max-height: 70vh;
+    margin: 0 auto;
 }
 
-.like-btn.liked {
-    color: #e74c3c;
+/* 点赞和分享按钮样式 */
+.feed-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
 }
 
-.like-btn.liked i {
-    animation: heartBeat 0.5s ease;
-}
-
-@keyframes heartBeat {
-    0% {
-        transform: scale(1);
-    }
-    25% {
-        transform: scale(1.2);
-    }
-    50% {
-        transform: scale(1);
-    }
-    75% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.like-count {
+.feed-actions button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.like-count.increased {
-    animation: countUp 0.5s ease;
+.feed-actions button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
-@keyframes countUp {
-    0% {
-        transform: scale(1);
+.feed-actions button i {
+    font-size: 1.2rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 1rem;
     }
-    50% {
-        transform: scale(1.2);
-        color: #e74c3c;
+
+    .video-container video {
+        max-height: 50vh;
     }
-    100% {
-        transform: scale(1);
+    
+    .feed-actions {
+        flex-wrap: wrap;
     }
+    
+    .feed-actions button {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 0.8rem;
+    }
+
+    .modal-text {
+        font-size: 1rem;
+    }
+
+    .video-container video {
+        max-height: 40vh;
+    }
+    
+    .feed-actions button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* 模态框内容样式 */
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+}
+
+.modal-text {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1rem;
+    line-height: 1.5;
 } 

@@ -141,53 +141,69 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// 点赞功能
+// 视频播放功能
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化点赞数据
-    const likesData = JSON.parse(localStorage.getItem('postLikes')) || {};
+    // 初始化视频播放器
+    const videos = document.querySelectorAll('video');
     
-    // 为所有点赞按钮添加事件监听
+    videos.forEach(video => {
+        // 当开始播放一个视频时，暂停其他视频
+        video.addEventListener('play', function() {
+            videos.forEach(otherVideo => {
+                if (otherVideo !== video && !otherVideo.paused) {
+                    otherVideo.pause();
+                }
+            });
+        });
+    });
+
+    // 点赞按钮功能
     const likeButtons = document.querySelectorAll('.like-btn');
     likeButtons.forEach(button => {
-        const postId = button.closest('.feed-item').dataset.postId;
-        const likeCount = button.querySelector('.like-count');
-        
-        // 设置初始状态
-        if (likesData[postId]) {
-            button.classList.add('liked');
-            likeCount.textContent = likesData[postId].count;
-        }
-        
         button.addEventListener('click', function() {
-            const postId = this.closest('.feed-item').dataset.postId;
-            const likeCount = this.querySelector('.like-count');
+            const icon = this.querySelector('i');
+            const text = this.querySelector('span');
             
-            // 切换点赞状态
-            if (!likesData[postId]) {
-                likesData[postId] = { count: 1, liked: true };
-                this.classList.add('liked');
-                likeCount.textContent = '1';
+            if (icon.classList.contains('fas')) {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                text.textContent = 'Like';
             } else {
-                if (likesData[postId].liked) {
-                    likesData[postId].count--;
-                    likesData[postId].liked = false;
-                    this.classList.remove('liked');
-                } else {
-                    likesData[postId].count++;
-                    likesData[postId].liked = true;
-                    this.classList.add('liked');
-                }
-                likeCount.textContent = likesData[postId].count;
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                text.textContent = 'Liked';
             }
-            
-            // 添加动画效果
-            likeCount.classList.add('increased');
-            setTimeout(() => {
-                likeCount.classList.remove('increased');
-            }, 500);
-            
-            // 保存到本地存储
-            localStorage.setItem('postLikes', JSON.stringify(likesData));
+        });
+    });
+
+    // 分享按钮功能
+    const shareButtons = document.querySelectorAll('.share-btn');
+    shareButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 检查是否支持 Web Share API
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Check out this amazing performance!',
+                    text: 'Watch this incredible singing performance shared by Oscar Swift',
+                    url: window.location.href
+                })
+                .catch(error => console.log('Error sharing:', error));
+            } else {
+                // 不支持 Web Share API 时的后备方案
+                const tempInput = document.createElement('input');
+                tempInput.value = window.location.href;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                
+                // 显示反馈
+                const originalText = this.querySelector('span').textContent;
+                this.querySelector('span').textContent = '已复制链接！';
+                setTimeout(() => {
+                    this.querySelector('span').textContent = originalText;
+                }, 2000);
+            }
         });
     });
 }); 

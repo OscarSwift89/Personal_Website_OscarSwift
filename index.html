@@ -63,7 +63,7 @@
             <section class="about-feed">
                 <h2>Activity Feed</h2>
                 <div class="feed-list">
-                    <div class="feed-card" data-post-id="daily-photo">
+                    <div class="feed-card">
                         <div class="feed-header">
                             <span class="feed-tag events"><i class="fas fa-calendar-alt"></i> Events</span>
                             <span class="feed-preview"><i class="fas fa-eye"></i> Preview</span>
@@ -89,7 +89,7 @@
                         </div>
                     </div>
 
-                    <div class="feed-card" data-post-id="industry-events">
+                    <div class="feed-card">
                         <div class="feed-header">
                             <span class="feed-tag thoughts"><i class="fas fa-lightbulb"></i> Thoughts</span>
                             <span class="feed-preview"><i class="fas fa-eye"></i> Preview</span>
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     
-                    <div class="feed-card" data-post-id="conference">
+                    <div class="feed-card">
                         <div class="feed-header">
                             <span class="feed-tag project"><i class="fas fa-laptop-code"></i> Project</span>
                         </div>
@@ -127,6 +127,33 @@
                             <span><i class="fas fa-eye"></i> 1,540 views</span>
                         </div>
                     </div>
+
+                    <!-- 新增唱歌视频卡片 -->
+                    <article class="feed-item">
+                        <div class="feed-content">
+                            <div class="modal-content">
+                                <p class="modal-text">经过长时间的练习，终于能够完整演绎这首高难度歌曲了！🎵 分享给大家我的进步时刻～</p>
+                                
+                                <div class="video-container">
+                                    <video controls poster="images/singing-thumbnail.jpg">
+                                        <source src="videos/singing-performance.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+
+                                <div class="feed-actions">
+                                    <button class="like-btn">
+                                        <i class="far fa-heart"></i>
+                                        <span>Like</span>
+                                    </button>
+                                    <button class="share-btn">
+                                        <i class="fas fa-share"></i>
+                                        <span>Share</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </section>
         </main>
