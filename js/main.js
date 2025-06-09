@@ -139,4 +139,55 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = 'none';
         }
     });
+});
+
+// 点赞功能
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化点赞数据
+    const likesData = JSON.parse(localStorage.getItem('postLikes')) || {};
+    
+    // 为所有点赞按钮添加事件监听
+    const likeButtons = document.querySelectorAll('.like-btn');
+    likeButtons.forEach(button => {
+        const postId = button.closest('.feed-item').dataset.postId;
+        const likeCount = button.querySelector('.like-count');
+        
+        // 设置初始状态
+        if (likesData[postId]) {
+            button.classList.add('liked');
+            likeCount.textContent = likesData[postId].count;
+        }
+        
+        button.addEventListener('click', function() {
+            const postId = this.closest('.feed-item').dataset.postId;
+            const likeCount = this.querySelector('.like-count');
+            
+            // 切换点赞状态
+            if (!likesData[postId]) {
+                likesData[postId] = { count: 1, liked: true };
+                this.classList.add('liked');
+                likeCount.textContent = '1';
+            } else {
+                if (likesData[postId].liked) {
+                    likesData[postId].count--;
+                    likesData[postId].liked = false;
+                    this.classList.remove('liked');
+                } else {
+                    likesData[postId].count++;
+                    likesData[postId].liked = true;
+                    this.classList.add('liked');
+                }
+                likeCount.textContent = likesData[postId].count;
+            }
+            
+            // 添加动画效果
+            likeCount.classList.add('increased');
+            setTimeout(() => {
+                likeCount.classList.remove('increased');
+            }, 500);
+            
+            // 保存到本地存储
+            localStorage.setItem('postLikes', JSON.stringify(likesData));
+        });
+    });
 }); 
