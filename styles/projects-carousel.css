@@ -155,19 +155,84 @@
 }
 @media (max-width: 900px) {
   .projects-carousel-container {
-    max-width: 98vw;
-    height: 320px;
+    max-width: 100%;
+    height: 400px;
+    padding: 0 20px;
   }
   .project-card {
-    width: 92vw;
-    min-width: 220px;
-    max-width: 98vw;
-    height: 230px;
+    width: 85vw;
+    min-width: 280px;
+    max-width: 85vw;
+    height: auto;
+    min-height: 300px;
+    padding: 1.5rem 1rem;
+  }
+  .project-card h3 {
+    font-size: 1.2rem;
+    margin: 0.8rem 0 0.5rem 0;
+  }
+  .project-card p {
+    font-size: 0.95rem;
+    margin: 0 0 0.4rem 0;
+  }
+  .projects-carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
   }
   .projects-carousel-btn.prev {
-    left: -36px;
+    left: 0;
   }
   .projects-carousel-btn.next {
-    right: -36px;
+    right: 0;
+  }
+  .project-card.next {
+    transform: translate(calc(-50% + 120px), -50%) scale(0.85) rotateY(-32deg);
+  }
+  .project-card.prev {
+    transform: translate(calc(-50% - 120px), -50%) scale(0.85) rotateY(32deg);
+  }
+  .project-card.far-next {
+    transform: translate(calc(-50% + 240px), -50%) scale(0.7) rotateY(-48deg);
+  }
+  .project-card.far-prev {
+    transform: translate(calc(-50% - 240px), -50%) scale(0.7) rotateY(48deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-carousel-container {
+    height: 350px;
+  }
+  .project-card {
+    width: 90vw;
+    min-width: 260px;
+    max-width: 90vw;
+    min-height: 280px;
+    padding: 1.2rem 0.8rem;
+  }
+  .project-card h3 {
+    font-size: 1.1rem;
+  }
+  .project-card p {
+    font-size: 0.9rem;
+  }
+  .project-card .card-number {
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+    line-height: 36px;
+  }
+  .project-card.next {
+    transform: translate(calc(-50% + 100px), -50%) scale(0.85) rotateY(-32deg);
+  }
+  .project-card.prev {
+    transform: translate(calc(-50% - 100px), -50%) scale(0.85) rotateY(32deg);
+  }
+  .project-card.far-next {
+    transform: translate(calc(-50% + 200px), -50%) scale(0.7) rotateY(-48deg);
+  }
+  .project-card.far-prev {
+    transform: translate(calc(-50% - 200px), -50%) scale(0.7) rotateY(48deg);
   }
 }
