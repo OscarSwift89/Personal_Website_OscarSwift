@@ -1375,7 +1375,10 @@ footer {
 
 /* Feed Title and Tags */
 .feed-title {
-    color: var(--primary-color);
+    background: linear-gradient(45deg, var(--primary-color), #ff69b4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
@@ -1389,7 +1392,10 @@ footer {
 }
 
 .tag {
-    color: var(--primary-color);
+    background: linear-gradient(45deg, var(--primary-color), #ff69b4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     font-size: 0.9rem;
     font-weight: 500;
 }
@@ -1424,7 +1430,6 @@ footer {
     display: flex;
     gap: 1.5rem;
     margin: 1rem 0;
-    color: var(--primary-color);
     font-size: 0.9rem;
 }
 
@@ -1432,10 +1437,17 @@ footer {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    background: linear-gradient(45deg, var(--primary-color), #ff69b4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .feed-stats i {
-    color: var(--primary-color);
+    background: linear-gradient(45deg, var(--primary-color), #ff69b4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     font-size: 1.1rem;
 }
 
@@ -1530,6 +1542,7 @@ footer {
     max-width: 33.33%;
     margin: 0 auto;
     padding: 0 1rem;
+    position: relative;
 }
 
 /* Feed Item Styles */
@@ -1544,27 +1557,79 @@ footer {
 
 /* 响应式调整 */
 @media (max-width: 1200px) {
+    .section-divider {
+        max-width: 50%;
+    }
+    
     .activity-feed {
         max-width: 50%;
     }
 }
 
 @media (max-width: 768px) {
-    .activity-feed {
+    .section-divider {
         max-width: 80%;
+        margin: 2rem auto;
     }
 
-    .feed-item {
-        padding: 1rem;
+    .section-title {
+        font-size: 1.5rem;
+        padding: 0 1.5rem;
+    }
+
+    .activity-feed {
+        max-width: 80%;
     }
 }
 
 @media (max-width: 480px) {
+    .section-divider {
+        max-width: 95%;
+        margin: 1.5rem auto;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+        padding: 0 1rem;
+    }
+
     .activity-feed {
         max-width: 95%;
     }
+}
 
-    .feed-item {
-        padding: 0.8rem;
-    }
+/* Section Divider and Title */
+.section-divider {
+    text-align: center;
+    margin: 3rem auto;
+    position: relative;
+    max-width: 33.33%;
+}
+
+.section-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, 
+        transparent,
+        var(--primary-color) 20%,
+        var(--primary-color) 80%,
+        transparent
+    );
+    z-index: 1;
+}
+
+.section-title {
+    display: inline-block;
+    background: var(--bg-color);
+    padding: 0 2rem;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    margin: 0;
 } 
