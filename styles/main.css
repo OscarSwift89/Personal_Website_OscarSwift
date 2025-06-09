@@ -1374,7 +1374,8 @@ footer {
 }
 
 /* Feed Title and Tags */
-.feed-title {
+.feed-title,
+.feed-item h3 {
     background: linear-gradient(45deg, var(--primary-color), #ff69b4);
     -webkit-background-clip: text;
     background-clip: text;
@@ -1539,71 +1540,90 @@ footer {
 
 /* Activity Feed Container */
 .activity-feed {
-    max-width: 33.33%;
+    max-width: 66.67%;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 2rem 1rem;
     position: relative;
+    background: linear-gradient(135deg, 
+        rgba(123, 47, 242, 0.08) 0%,
+        rgba(255, 105, 180, 0.08) 100%
+    );
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(123, 47, 242, 0.15);
+    box-shadow: 0 8px 32px rgba(123, 47, 242, 0.1);
 }
 
 /* Feed Item Styles */
 .feed-item {
-    background: white;
+    background: rgba(255, 255, 255, 0.98);
     border-radius: 16px;
     padding: 1.5rem;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(123, 47, 242, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feed-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        var(--primary-color),
+        #ff69b4
+    );
+    opacity: 0.8;
+}
+
+.feed-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(123, 47, 242, 0.15);
 }
 
 /* 响应式调整 */
 @media (max-width: 1200px) {
-    .section-divider {
-        max-width: 50%;
-    }
-    
     .activity-feed {
-        max-width: 50%;
+        max-width: 80%;
+        padding: 1.5rem 1rem;
     }
 }
 
 @media (max-width: 768px) {
-    .section-divider {
-        max-width: 80%;
-        margin: 2rem auto;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-        padding: 0 1.5rem;
-    }
-
     .activity-feed {
-        max-width: 80%;
+        max-width: 90%;
+        padding: 1.2rem 0.8rem;
+    }
+
+    .feed-item {
+        padding: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .section-divider {
-        max-width: 95%;
-        margin: 1.5rem auto;
-    }
-
-    .section-title {
-        font-size: 1.3rem;
-        padding: 0 1rem;
-    }
-
     .activity-feed {
         max-width: 95%;
+        padding: 1rem 0.5rem;
+    }
+
+    .feed-item {
+        padding: 0.8rem;
     }
 }
 
 /* Section Divider and Title */
 .section-divider {
-    text-align: center;
-    margin: 3rem auto;
+    text-align: left;
+    margin: 3rem 0;
     position: relative;
-    max-width: 33.33%;
+    width: 100%;
+    padding-left: 2rem;
 }
 
 .section-divider::before {
@@ -1614,9 +1634,7 @@ footer {
     right: 0;
     height: 1px;
     background: linear-gradient(to right, 
-        transparent,
-        var(--primary-color) 20%,
-        var(--primary-color) 80%,
+        var(--primary-color),
         transparent
     );
     z-index: 1;
@@ -1625,11 +1643,62 @@ footer {
 .section-title {
     display: inline-block;
     background: var(--bg-color);
-    padding: 0 2rem;
+    padding: 0 1rem 0 0;
     color: var(--primary-color);
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 2.2rem;
+    font-weight: 700;
     position: relative;
     z-index: 2;
     margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Activity Feed Container */
+.activity-feed {
+    max-width: 33.33%;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+    .section-divider {
+        padding-left: 1.5rem;
+    }
+    
+    .activity-feed {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-divider {
+        padding-left: 1rem;
+        margin: 2rem 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .activity-feed {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-divider {
+        padding-left: 0.8rem;
+        margin: 1.5rem 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .activity-feed {
+        max-width: 95%;
+    }
 } 
