@@ -60,101 +60,115 @@
                 </div>
             </section>
 
-            <section class="about-feed">
-                <h2>Activity Feed</h2>
-                <div class="feed-list">
-                    <div class="feed-card">
-                        <div class="feed-header">
-                            <span class="feed-tag events"><i class="fas fa-calendar-alt"></i> Events</span>
-                            <span class="feed-preview"><i class="fas fa-eye"></i> Preview</span>
-                        </div>
-                        <h3>Web3 & AI Conference Experience</h3>
-                        <p>Had an amazing time at the Web3 & AI Conference! Met brilliant minds in the industry, learned about cutting-edge developments in blockchain and AI integration. The highlight was discussing the future of decentralized AI systems with industry leaders.</p>
-                        <div class="feed-image-gallery">
-                            <div class="gallery-main">
-                                <img src="images/conference/1.jpg" alt="Conference Photo" class="active">
-                                <img src="images/conference/2.jpg" alt="Conference Photo">
-                                <img src="images/conference/3.jpg" alt="Conference Photo">
-                            </div>
-                            <div class="gallery-thumbnails">
-                                <img src="images/conference/4.jpg" alt="Conference Photo">
-                                <img src="images/conference/5.jpg" alt="Conference Photo">
-                                <img src="images/conference/6.jpg" alt="Conference Photo">
-                            </div>
-                        </div>
-                        <div class="feed-meta">
-                            <span><i class="fas fa-clock"></i> Posted 2 days ago</span>
-                            <span><i class="fas fa-heart"></i> 45</span>
-                            <span><i class="fas fa-eye"></i> 328 views</span>
-                        </div>
-                    </div>
-
-                    <div class="feed-card">
-                        <div class="feed-header">
-                            <span class="feed-tag thoughts"><i class="fas fa-lightbulb"></i> Thoughts</span>
-                            <span class="feed-preview"><i class="fas fa-eye"></i> Preview</span>
-                        </div>
-                        <h3>2023 in Review: Growth & Reflection</h3>
-                        <p>2023 was a year of transformation and learning. Embraced new challenges, improved my coding skills, and contributed to open source projects.</p>
-                        <div class="feed-meta">
-                            <span><i class="fas fa-clock"></i> Posted 2 months ago</span>
-                            <span><i class="fas fa-heart"></i> 128</span>
-                            <span><i class="fas fa-eye"></i> 1,024 views</span>
+            <section class="activity-feed">
+                <!-- 新增唱歌视频卡片 -->
+                <article class="feed-item">
+                    <div class="feed-header">
+                        <div class="feed-info">
+                            <h3>Oscar Swift</h3>
+                            <span class="timestamp">Just now</span>
                         </div>
                     </div>
                     
-                    <div class="feed-card">
-                        <div class="feed-header">
-                            <span class="feed-tag project"><i class="fas fa-laptop-code"></i> Project</span>
+                    <div class="feed-content">
+                        <h4 class="feed-title">🎵 Vocal Progress: Mastering Challenging Songs</h4>
+                        <div class="feed-tags">
+                            <span class="tag">#VocalTraining</span>
+                            <span class="tag">#MusicProgress</span>
+                            <span class="tag">#PersonalGrowth</span>
                         </div>
-                        <h3>Launched My Personal Website</h3>
-                        <p>Released a brand new personal website with a modern UI, smooth animations, and responsive design.</p>
-                        <div class="feed-meta">
-                            <span><i class="fas fa-clock"></i> Posted 3 months ago</span>
-                            <span><i class="fas fa-heart"></i> 89</span>
-                            <span><i class="fas fa-eye"></i> 760 views</span>
+                        <p>After months of dedicated practice and vocal training, I'm thrilled to share my progress! I can now confidently perform complex songs that once seemed impossible. This journey has taught me the importance of persistence and proper technique in vocal development.</p>
+                        
+                        <div class="video-container">
+                            <video controls poster="images/singing-thumbnail.jpg">
+                                <source src="videos/singing-performance.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <div class="feed-stats">
+                            <span class="views"><i class="fas fa-eye"></i> 89 views</span>
+                            <span class="likes"><i class="fas fa-heart"></i> 13 likes</span>
+                        </div>
+
+                        <div class="feed-actions">
+                            <button class="like-btn">
+                                <i class="far fa-heart"></i>
+                                <span>Like</span>
+                            </button>
+                            <button class="share-btn">
+                                <i class="fas fa-share"></i>
+                                <span>Share</span>
+                            </button>
                         </div>
                     </div>
-                    <div class="feed-card">
-                        <div class="feed-header">
-                            <span class="feed-tag milestone"><i class="fas fa-trophy"></i> Milestone</span>
+                </article>
+
+                <!-- 其他动态卡片 -->
+                <article class="feed-item">
+                    <div class="feed-header">
+                        <span class="feed-tag events"><i class="fas fa-calendar-alt"></i> Events</span>
+                        <span class="feed-preview"><i class="fas fa-eye"></i> Preview</span>
+                    </div>
+                    <h3>Web3 & AI Conference Experience</h3>
+                    <p>Had an amazing time at the Web3 & AI Conference! Met brilliant minds in the industry, learned about cutting-edge developments in blockchain and AI integration. The highlight was discussing the future of decentralized AI systems with industry leaders.</p>
+                    <div class="feed-image-gallery">
+                        <div class="gallery-main">
+                            <img src="images/conference/1.jpg" alt="Conference Photo" class="active">
+                            <img src="images/conference/2.jpg" alt="Conference Photo">
+                            <img src="images/conference/3.jpg" alt="Conference Photo">
                         </div>
-                        <h3>Graduated from University</h3>
-                        <p>Successfully completed my Computer Science degree and started my journey as a developer.</p>
-                        <div class="feed-meta">
-                            <span><i class="fas fa-clock"></i> Posted 6 months ago</span>
-                            <span><i class="fas fa-heart"></i> 203</span>
-                            <span><i class="fas fa-eye"></i> 1,540 views</span>
+                        <div class="gallery-thumbnails">
+                            <img src="images/conference/4.jpg" alt="Conference Photo">
+                            <img src="images/conference/5.jpg" alt="Conference Photo">
+                            <img src="images/conference/6.jpg" alt="Conference Photo">
                         </div>
                     </div>
+                    <div class="feed-meta">
+                        <span><i class="fas fa-clock"></i> Posted 2 days ago</span>
+                        <span><i class="fas fa-heart"></i> 45</span>
+                        <span><i class="fas fa-eye"></i> 328 views</span>
+                    </div>
+                </article>
 
-                    <!-- 新增唱歌视频卡片 -->
-                    <article class="feed-item">
-                        <div class="feed-content">
-                            <div class="modal-content">
-                                <p class="modal-text">经过长时间的练习，终于能够完整演绎这首高难度歌曲了！🎵 分享给大家我的进步时刻～</p>
-                                
-                                <div class="video-container">
-                                    <video controls poster="images/singing-thumbnail.jpg">
-                                        <source src="videos/singing-performance.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-
-                                <div class="feed-actions">
-                                    <button class="like-btn">
-                                        <i class="far fa-heart"></i>
-                                        <span>Like</span>
-                                    </button>
-                                    <button class="share-btn">
-                                        <i class="fas fa-share"></i>
-                                        <span>Share</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                <article class="feed-item">
+                    <div class="feed-header">
+                        <span class="feed-tag thoughts"><i class="fas fa-lightbulb"></i> Thoughts</span>
+                        <span class="feed-preview"><i class="fas fa-eye"></i> Preview</span>
+                    </div>
+                    <h3>2023 in Review: Growth & Reflection</h3>
+                    <p>2023 was a year of transformation and learning. Embraced new challenges, improved my coding skills, and contributed to open source projects.</p>
+                    <div class="feed-meta">
+                        <span><i class="fas fa-clock"></i> Posted 2 months ago</span>
+                        <span><i class="fas fa-heart"></i> 128</span>
+                        <span><i class="fas fa-eye"></i> 1,024 views</span>
+                    </div>
+                </article>
+                
+                <article class="feed-item">
+                    <div class="feed-header">
+                        <span class="feed-tag project"><i class="fas fa-laptop-code"></i> Project</span>
+                    </div>
+                    <h3>Launched My Personal Website</h3>
+                    <p>Released a brand new personal website with a modern UI, smooth animations, and responsive design.</p>
+                    <div class="feed-meta">
+                        <span><i class="fas fa-clock"></i> Posted 3 months ago</span>
+                        <span><i class="fas fa-heart"></i> 89</span>
+                        <span><i class="fas fa-eye"></i> 760 views</span>
+                    </div>
+                </article>
+                <article class="feed-item">
+                    <div class="feed-header">
+                        <span class="feed-tag milestone"><i class="fas fa-trophy"></i> Milestone</span>
+                    </div>
+                    <h3>Graduated from University</h3>
+                    <p>Successfully completed my Computer Science degree and started my journey as a developer.</p>
+                    <div class="feed-meta">
+                        <span><i class="fas fa-clock"></i> Posted 6 months ago</span>
+                        <span><i class="fas fa-heart"></i> 203</span>
+                        <span><i class="fas fa-eye"></i> 1,540 views</span>
+                    </div>
+                </article>
             </section>
         </main>
     </div>
