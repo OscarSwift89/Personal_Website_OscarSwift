@@ -104,4 +104,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         lastScroll = currentScroll;
     });
+});
+
+// 图片查看功能
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementsByClassName('modal-close')[0];
+    
+    // 为所有图片添加点击事件
+    const galleryImages = document.querySelectorAll('.gallery-main img, .gallery-thumbnails img');
+    galleryImages.forEach(img => {
+        img.addEventListener('click', function() {
+            modal.style.display = 'block';
+            modalImg.src = this.src;
+        });
+    });
+    
+    // 点击关闭按钮关闭模态框
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+    
+    // 点击模态框背景关闭模态框
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // 按ESC键关闭模态框
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+        }
+    });
 }); 
