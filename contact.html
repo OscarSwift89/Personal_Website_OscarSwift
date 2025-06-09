@@ -38,25 +38,37 @@
         <main class="container">
             <section class="contact">
                 <div class="contact-info fade-in">
-                    <div class="contact-item">
+                    <div class="contact-item" data-type="email" data-value="oscarliu2018@outlook.com">
                         <i class="fas fa-envelope"></i>
                         <h3>Email</h3>
-                        <p class="contact-detail">oscarliu2018@outlookoutlook.com</p>
+                        <p class="contact-detail">oscarliu2018@outlook.com</p>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item" data-type="phone" data-value="0413248412">
                         <i class="fas fa-phone"></i>
                         <h3>Phone</h3>
-                        <p class="contact-detail">+86 123 4567 8900</p>
+                        <p class="contact-detail">0413248412</p>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item" data-type="github" data-value="https://github.com/OscarSwift89">
                         <i class="fab fa-github"></i>
                         <h3>GitHub</h3>
-                        <p class="contact-detail"><a href="https://github.com/Oscarswift89" target="_blank">Oscarswift89</a></p>
+                        <p class="contact-detail">@OscarSwift89</p>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item" data-type="location" data-value="Beijing, China">
                         <i class="fas fa-map-marker-alt"></i>
                         <h3>Location</h3>
-                        <p class="contact-detail">Beijing, China</p>
+                        <p class="contact-detail">Foshan, China</p>
+                    </div>
+                </div>
+
+                <!-- 弹窗结构 -->
+                <div class="contact-modal" id="contactModal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3 id="modalTitle">Contact Information</h3>
+                        <p id="modalContent"></p>
+                        <button class="copy-btn" id="copyBtn">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
                     </div>
                 </div>
 

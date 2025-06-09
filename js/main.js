@@ -206,4 +206,60 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});
+
+// Contact Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('contactModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    const copyBtn = document.getElementById('copyBtn');
+    const closeBtn = document.querySelector('.close-modal');
+    const contactItems = document.querySelectorAll('.contact-item');
+
+    // 打开弹窗
+    contactItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const type = item.getAttribute('data-type');
+            const value = item.getAttribute('data-value');
+            
+            modalTitle.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+            modalContent.textContent = value;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // 关闭弹窗
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    // 点击弹窗外部关闭
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // 复制功能
+    copyBtn.addEventListener('click', async () => {
+        const textToCopy = modalContent.textContent;
+        try {
+            await navigator.clipboard.writeText(textToCopy);
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+            copyBtn.innerHTML = '<i class="fas fa-times"></i> Failed';
+            setTimeout(() => {
+                copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+            }, 2000);
+        }
+    });
 }); 
